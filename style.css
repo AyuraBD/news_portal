@@ -1,0 +1,40 @@
+.header .navbar-collapse{
+    justify-content: end;
+}
+#menu-container .col:first-child{
+    text-align: left;
+}
+#menu-container .col:last-child{
+    text-align: right;
+}
+#news-post .col{
+    background-color: rgb(231, 229, 229);
+    padding:20px;
+    border-radius: 10px;
+}
+#news-post .bottom-cnt{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.count{
+    background-color: rgb(231, 229, 229);
+    padding:20px 10px;
+    border-radius: 5px;
+}
+.count p{
+    margin:0px;
+}
+.author{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.author img{
+    margin-right:right;
+    width:50px;
+    border-radius:50%;
+}
+.author h6{
+    margin-left:10px;
+}

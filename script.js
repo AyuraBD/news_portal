@@ -12,7 +12,7 @@ const deisplayMenu = posts =>{
         const menuDiv = document.createElement('div');
         menuDiv.classList.add('col');
         menuDiv.innerHTML = `
-            <p onclick="newsPost(${post.category_id})">${post.category_name}</p>
+            <p id="menu-list" onclick="newsPost('${post.category_id}')">${post.category_name}</p>
         `;
         menuContainer.appendChild(menuDiv);
     })
@@ -22,33 +22,36 @@ const newsPost = (category_id) =>{
   const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
   fetch(url)
   .then(res => res.json())
-  .then(data => displayPost(data));
+  .then(data => displayPost(data.data));
 }
 const displayPost = posts =>{
   console.log(posts);
   const displayPostCategory = document.getElementById('display-post');
-      const newDiv = document.createElement('div');
+
+        displayPostCategory.innerHTML = ``;
+    posts.forEach(post =>{
+          const newDiv = document.createElement('div');
       newDiv.classList.add('col');
       newDiv.innerHTML = `
       <div class="row">
         <div class="col-md-4">
-          <img class="img-fluid" src="${posts.image_url}" class="card-img-top" alt="...">
+          <img class="img-fluid" src="${post.image_url}" class="card-img-top" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body mb-4">
-            <h5 class="card-title mb-2">${posts.title}</h5>
-            <p class="card-text mb-4">${posts.details}</p>
+            <h5 class="card-title mb-2">${post.title}</h5>
+            <p class="card-text mb-4">${post.details.slice(0, 250) +' ...'}</p>
              
           </div>
           <div class=" bottom-cnt">
             <div>
               <div class="author">
-                <img class="img-fluid" src="" alt="">
-                <h6></h6>
+                <img class="img-fluid" src="${post.author.img}" alt="">
+                <h6>${post.author.name ? post.author.name : 'no data found'}</h6>
               </div>
             </div>
             <div>
-              <p></p>
+              <p>${post.rating.number}</p>
             </div>
             <div>
               <a>Read More</a>
@@ -58,70 +61,7 @@ const displayPost = posts =>{
       </div>
       `;
       displayPostCategory.appendChild(newDiv);
+        })      
 };
 
-
-
-
-
-
-
-
-
-
-
-// Experiments
-// const newsPosts = (category_id) =>{
-//   const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
-//   fetch(url)
-//   .then(res => res.json())
-//   .then(data => displayPosts(data.data._id));
-// }
-// const displayPosts = posts =>{
-//   console.log(posts);
-//   const displayPostCategory = document.getElementById('display-post');
-//   posts.forEach(post =>{
-//       const newDiv = document.createElement('div');
-//       newDiv.classList.add('col');
-//       newDiv.innerHTML = `
-//       <div class="row">
-//         <div class="col-md-4">
-//           <img class="img-fluid" src="${post.category_id}" class="card-img-top" alt="...">
-//         </div>
-//         <div class="col-md-8">
-//           <div class="card-body mb-4">
-//             <h5 class="card-title">Card title</h5>
-//             <p class="card-text mb-4">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-//             <p class="card-text mb-1">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-//           </div>
-//           <div class=" bottom-cnt">
-//             <div>
-//               <div class="author">
-//                 <img class="img-fluid" src="" alt="">
-//                 <p>Jane Cooper</p>
-//               </div>
-//             </div>
-//             <div>
-//               <p>Million</p>
-//             </div>
-//             <div>
-//               <button>Read More</button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//       `;
-//       displayPostCategory.appendChild(newDiv);
-//   })
-// }
 getMenu();
-
-
-
-
-
-
-
-
-
-
