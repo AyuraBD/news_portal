@@ -28,9 +28,19 @@ const newsPost = (category_id) =>{
 const displayPost = posts =>{
   // console.log(posts);
   const displayPostCategory = document.getElementById('display-post');
+
+  const size = Object.keys(displayPostCategory).length; 
+  const countDiv = document.getElementById('count');
+  const countDivString = parseInt(countDiv);
+  const sum = size + countDivString;  
+  countDiv.innerText = sum;
+  // console.log(typeof size)
+
         displayPostCategory.innerHTML = ``;
     posts.forEach(post =>{
     const newDiv = document.createElement('div');
+          
+
       newDiv.classList.add('col');
       newDiv.innerHTML = `
       <div class="row">
@@ -94,10 +104,12 @@ const displayPosts = posts =>{
     posts.forEach(post =>{
           const newDiv = document.createElement('div');
 
-          const size = Object.keys(newDiv).length;          
-          const countDiv = document.getElementById('count');        
-          
-          countDiv.innerText = size;
+          const size = Object.keys(displayPostCategory).length; 
+          const countDiv = document.getElementById('count');
+          const countDivString = parseInt(countDiv);
+          const sum = size + countDivString;  
+          countDiv.innerText = sum;
+          // console.log(typeof size)
 
       newDiv.classList.add('col');
       newDiv.innerHTML = `
