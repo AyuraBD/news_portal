@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily News - Your daily blogs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style>
+      .header .navbar-collapse{
+        justify-content: end;
+      }
+      #menu-container .col:first-child{
+        text-align: left;
+      }
+      #menu-container .col:last-child{
+        text-align: right;
+      }
+      #news-post .bottom-cnt{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+      .author{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .author img{
+        margin-right:right;
+        width:50px;
+        border-radius:50%;
+      }
+      .author h6{
+        margin-left:10px;
+      }
+    </style>
+  </head>
+<body>
+  <!-- Start Header -->
+  <header class="bg-success py-2">
+    <div class="header container">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white fw-bold" href="#">Daily News</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="#">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">About us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+  <!-- Start Menu Bar -->
+  <section>
+    <div class="menu container py-4 mb-5">
+      <div class="container text-center">
+        <div id="menu-container" class="row">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Menu bar -->
+
+  <main class="container">
+    <!-- Start News Posts -->
+  <section>
+    <div id="news-post">
+      <div id="display-post" class="row row-cols-1 row-cols-md-1 g-4">
+             
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
