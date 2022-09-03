@@ -26,7 +26,7 @@ const newsPost = (category_id) =>{
   .then(data => displayPost(data.data));
 }
 const displayPost = posts =>{
-  console.log(posts);
+  // console.log(posts);
   const displayPostCategory = document.getElementById('display-post');
         displayPostCategory.innerHTML = ``;
     posts.forEach(post =>{
@@ -53,7 +53,7 @@ const displayPost = posts =>{
               <p>${post.rating.number}</p>
             </div>
             <div>
-              <a onclick="newsDetails(${post})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="cursor:pointer;">Read More</a>
+              <a onclick="newsDetails('${post._id}')" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="cursor:pointer;">Read More</a>
             </div>
           </div>
         </div>
@@ -65,25 +65,19 @@ const displayPost = posts =>{
 getMenu();
 
 // Click to show details of posts
-const newsDetails = (category_id) =>{
-  const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
+const newsDetails = (_id) =>{
+  const url = `https://openapi.programming-hero.com/api/news/${_id}`;
   fetch(url)
   .then(res => res.json())
-  .then(data => displayDetails(data.data));
+  .then(data => displayDetails(data));
 }
 const displayDetails = posts =>{
   console.log(posts);
+  const modalImg = document.getElementById('modal-img');
+    modalImg.src = posts.data[0].image_url;
   const staticBackdropLabel = document.getElementById('staticBackdropLabel');
-  // staticBackdropLabel.innerText = 
+   staticBackdropLabel.innerText = posts.data[0].title;
 }
-newsDetails();
-
-
-
-
-
-
-
 
 // Default Posts
 const newsPosts = () =>{
@@ -128,7 +122,7 @@ const displayPosts = posts =>{
               <p>${post.rating.number}</p>
             </div>
             <div>
-              <a  onclick="newsDetails()" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="cursor:pointer;">Read More</a>
+              <a onclick="newsDetails('${post._id}')" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="cursor:pointer;">Read More</a>
             </div>
           </div>
         </div>

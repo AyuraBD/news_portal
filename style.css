@@ -41,3 +41,16 @@
 .author h6{
     margin-left:10px;
 }
+.modal-dialog{
+    max-width: 700px!important;
+}
+.modal-head{
+    padding:15px;
+}
+.modal-title{
+    width:100%;
+    margin-bottom: 10px;
+}
+#modal-img{
+    width:100%;
+}
