@@ -31,6 +31,14 @@ const displayPost = posts =>{
         displayPostCategory.innerHTML = ``;
     posts.forEach(post =>{
           const newDiv = document.createElement('div');
+
+          const size = Object.keys(newDiv).length;
+          
+          const countDiv = document.getElementById('count');
+          
+          
+          countDiv.innerHTML = size;
+
       newDiv.classList.add('col');
       newDiv.innerHTML = `
       <div class="row">
