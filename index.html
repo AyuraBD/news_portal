@@ -49,7 +49,6 @@
   <!-- End Menu bar -->
 
   <main class="container">
-    
   <section>
     <!-- Count displayed posts -->
     <div class="container mb-5 count">
@@ -57,7 +56,14 @@
         <p><span id="count"></span> items found for category Entertainment</p>
       </div>
     </div>
-
+    <!-- Spinner -->
+    <div class="spinner d-none" style="height:400px;">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border text-secondary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
     <!-- Start News Posts -->
     <div id="news-post">
       <div id="display-post" class="row row-cols-1 row-cols-md-1 g-4">
