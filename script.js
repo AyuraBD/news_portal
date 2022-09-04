@@ -91,6 +91,8 @@ const displayDetails = posts =>{
     modalImg.src = posts.data[0].image_url;
   const staticBackdropLabel = document.getElementById('staticBackdropLabel');
    staticBackdropLabel.innerText = posts.data[0].title;
+   const postDetails = document.getElementById('post-details');
+   postDetails.innerText = posts.data[0].details;
 }
 
 // Default Posts
