@@ -70,7 +70,8 @@ const displayPost = posts =>{
       </div>
       `;
       displayPostCategory.appendChild(newDiv);
-    })      
+    })
+    spinner(false);     
 };
 getMenu();
 
@@ -141,8 +142,17 @@ const displayPosts = posts =>{
       </div>
       `;
       displayPostCategory.appendChild(newDiv);
-        })      
+        })
+  spinner(false);    
 };
 newsPosts();
+const spinner = loading =>{
+  const spinner = document.getElementById('spinner');
+  if(loading){
+    spinner.classList.remove('d-none');
+  } else{
+    spinner.classList.add('d-none');
+  }
+}
 
 
