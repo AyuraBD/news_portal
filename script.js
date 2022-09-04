@@ -21,6 +21,7 @@ const displayMenu = posts =>{
 
 // News Post
 const newsPost = (category_id) =>{
+  spinner(true);
   const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
   fetch(url)
   .then(res => res.json())
@@ -79,6 +80,7 @@ getMenu();
 
 // Click to show details of posts
 const newsDetails = (_id) =>{
+  
   const url = `https://openapi.programming-hero.com/api/news/${_id}`;
   fetch(url)
   .then(res => res.json())
