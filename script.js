@@ -3,7 +3,8 @@ const getMenu = () =>{
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     fetch(url)
     .then(res => res.json())
-    .then(data => displayMenu(data.data.news_category));
+    .then(data => displayMenu(data.data.news_category))
+    .catch(error => displayMenu(error))
 }
 const displayMenu = posts =>{
     // console.log(posts);
@@ -23,7 +24,8 @@ const newsPost = (category_id) =>{
   const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
   fetch(url)
   .then(res => res.json())
-  .then(data => displayPost(data.data));
+  .then(data => displayPost(data.data))
+  .catch(error => displayPost(error));
 }
 const displayPost = posts =>{
   // console.log(posts);
@@ -80,7 +82,8 @@ const newsDetails = (_id) =>{
   const url = `https://openapi.programming-hero.com/api/news/${_id}`;
   fetch(url)
   .then(res => res.json())
-  .then(data => displayDetails(data));
+  .then(data => displayDetails(data))
+  .catch(error => displayDetails(error));
 }
 const displayDetails = posts =>{
   console.log(posts);
@@ -95,7 +98,8 @@ const newsPosts = () =>{
   const url = `https://openapi.programming-hero.com/api/news/category/08`;
   fetch(url)
   .then(res => res.json())
-  .then(data => displayPosts(data.data));
+  .then(data => displayPosts(data.data))
+  .catch(error => displayPosts(error));
 }
 const displayPosts = posts =>{
   // console.log(posts);
